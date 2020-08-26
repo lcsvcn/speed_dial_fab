@@ -118,9 +118,3 @@ default: 'Icons.close'
 ## License
 
 See [LICENSE.md](LICENSE.md)
-
-## Thanks
-
-Thanks to [Lochlan Wansbrough](https://github.com/lwansbrough) for the [react-native-camera module](https://github.com/lwansbrough/react-native-camera) which provided me with an awesome example of how to set up this module.
-
-This QR code scanner was inspired by the QR code scanner within [Whatsapp](https://www.whatsapp.com/).
