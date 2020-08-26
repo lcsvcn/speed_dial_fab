@@ -21,7 +21,7 @@ class SpeedDialFabWidget extends StatefulWidget {
   });
 
   @override
-  State createState() => new SpeedDialFabWidgetState();
+  State createState() => SpeedDialFabWidgetState();
 }
 
 class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
@@ -30,7 +30,7 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
 
   @override
   void initState() {
-    _controller = new AnimationController(
+    _controller = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 500),
     );
@@ -38,29 +38,30 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
 
   @override
   Widget build(BuildContext context) {
-    return new Column(
+    return Column(
       mainAxisSize: MainAxisSize.min,
-      children: new List.generate(widget.secondaryIconsList.length,
-          (int index) {
-        Widget child = new Container(
+      children: List.generate(widget.secondaryIconsList.length, (int index) {
+        Widget child = Container(
           height: 70.0,
           width: 56.0,
           alignment: FractionalOffset.topCenter,
-          child: new ScaleTransition(
-            scale: new CurvedAnimation(
+          child: ScaleTransition(
+            scale: CurvedAnimation(
               parent: _controller,
-              curve: new Interval(
+              curve: Interval(
                   0.0, 1.0 - index / widget.secondaryIconsList.length / 2.0,
                   curve: Curves.easeOut),
             ),
-            child: new FloatingActionButton(
-              tooltip: widget.secondaryIconsTooltip[index],
+            child: FloatingActionButton(
+              tooltip: (widget.secondaryIconsTooltip == null)
+                  ? null
+                  : widget.secondaryIconsTooltip[index],
               heroTag: null,
               backgroundColor: (widget.backgroundColor == null)
                   ? widget.backgroundColor
                   : Colors.white,
               mini: true,
-              child: new Icon(
+              child: Icon(
                 widget.secondaryIconsList[index],
                 color: (widget.foregroundColor == null)
                     ? widget.foregroundColor
@@ -73,20 +74,20 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
         return child;
       }).toList()
         ..add(
-          new FloatingActionButton(
+          FloatingActionButton(
             heroTag: null,
-            child: new AnimatedBuilder(
+            child: AnimatedBuilder(
               animation: _controller,
               builder: (BuildContext context, Widget child) {
-                return new Transform(
+                return Transform(
                   transform:
-                      new Matrix4.rotationZ(_controller.value * 0.5 * math.pi),
+                      Matrix4.rotationZ(_controller.value * 0.5 * math.pi),
                   alignment: FractionalOffset.center,
-                  child: new Icon(
+                  child: Icon(
                     _controller.isDismissed
                         ? (widget.principalIconExpand != null)
                             ? widget.principalIconExpand
-                            : Icons.more_vert
+                            : Icons.add
                         : (widget.principalIconClose != null)
                             ? widget.principalIconClose
                             : Icons.close,
