@@ -65,8 +65,8 @@ class _MyHomeViewState extends State<MyHomeView> {
 
 Screenshot of the above:
 
-![fab collapsed](https://imgur.com/a/bsXu9It)
-![fab collapsed](https://i.imgur.com/weziv3c.png)
+![](/https://i.imgur.com/weziv3c.png)
+<img src="https://i.imgur.com/weziv3c.png"  width="375" height="667">
 
 Please open an issue if something doesn't work or is not clear enough.
 
