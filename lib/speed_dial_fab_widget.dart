@@ -4,20 +4,28 @@ import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
 class SpeedDialFabWidget extends StatefulWidget {
-  final Color backgroundColor;
-  final Color foregroundColor;
+  final Color secondaryBackgroundColor;
+  final Color secondaryForegroundColor;
+  final Color primaryBackgroundColor;
+  final Color primaryForegroundColor;
+  final IconData principalIconCollapse;
   final IconData principalIconExpand;
-  final IconData principalIconClose;
+  final double rotateAngle;
   final List<IconData> secondaryIconsList;
-  final List<String> secondaryIconsTooltip;
+  final List<String> secondaryIconsText;
+  final List<Function> secondaryIconsOnPress;
 
   SpeedDialFabWidget({
-    this.backgroundColor,
-    this.foregroundColor,
+    this.secondaryBackgroundColor,
+    this.secondaryForegroundColor,
+    this.primaryBackgroundColor,
+    this.primaryForegroundColor,
     this.principalIconExpand,
-    this.principalIconClose,
+    this.rotateAngle,
+    this.principalIconCollapse,
     @required this.secondaryIconsList,
-    this.secondaryIconsTooltip,
+    @required this.secondaryIconsOnPress,
+    this.secondaryIconsText,
   });
 
   @override
@@ -41,7 +49,7 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: List.generate(widget.secondaryIconsList.length, (int index) {
-        Widget child = Container(
+        Widget secondaryFAB = Container(
           height: 70.0,
           width: 56.0,
           alignment: FractionalOffset.topCenter,
@@ -49,48 +57,97 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
             scale: CurvedAnimation(
               parent: _controller,
               curve: Interval(
-                  0.0, 1.0 - index / widget.secondaryIconsList.length / 2.0,
-                  curve: Curves.easeOut),
-            ),
-            child: FloatingActionButton(
-              tooltip: (widget.secondaryIconsTooltip == null)
-                  ? null
-                  : widget.secondaryIconsTooltip[index],
-              heroTag: null,
-              backgroundColor: (widget.backgroundColor == null)
-                  ? widget.backgroundColor
-                  : Colors.white,
-              mini: true,
-              child: Icon(
-                widget.secondaryIconsList[index],
-                color: (widget.foregroundColor == null)
-                    ? widget.foregroundColor
-                    : Colors.black,
+                0.0,
+                1.0 - index / widget.secondaryIconsList.length / 2.0,
+                curve: Curves.easeOut,
               ),
-              onPressed: () {},
+            ),
+            child: Stack(
+              overflow: Overflow.visible,
+              children: <Widget>[
+                FloatingActionButton(
+                  elevation: 10,
+                  tooltip: (widget.secondaryIconsText != null)
+                      ? widget.secondaryIconsText[index]
+                      : null,
+                  heroTag: null,
+                  mini: true,
+                  backgroundColor: (widget.secondaryBackgroundColor != null)
+                      ? widget.secondaryBackgroundColor
+                      : Colors.white,
+                  child: Icon(
+                    widget.secondaryIconsList[index],
+                    color: (widget.secondaryForegroundColor != null)
+                        ? widget.secondaryForegroundColor
+                        : Colors.black,
+                  ),
+                  onPressed: widget.secondaryIconsOnPress[index],
+                ),
+                Positioned(
+                  right: 55.0,
+                  top: 5,
+                  child: Material(
+                    clipBehavior: Clip.antiAlias,
+                    borderRadius: BorderRadius.circular(10),
+                    elevation: 10,
+                    shadowColor: (widget.secondaryForegroundColor != null)
+                        ? widget.secondaryForegroundColor
+                        : Colors.black,
+                    color: (widget.secondaryBackgroundColor != null)
+                        ? widget.secondaryBackgroundColor
+                        : Colors.white,
+                    child: Padding(
+                      padding: EdgeInsets.all(9),
+                      child: Text(
+                        (widget.secondaryIconsText != null)
+                            ? widget.secondaryIconsText[index]
+                            : "",
+                        style: TextStyle(
+                          color: (widget.secondaryForegroundColor != null)
+                              ? widget.secondaryForegroundColor
+                              : Colors.black,
+                          fontWeight: FontWeight.w900,
+                          fontSize: 15,
+                          letterSpacing: 0.3,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         );
-        return child;
+
+        return secondaryFAB;
       }).toList()
         ..add(
           FloatingActionButton(
+            elevation: 10,
+            backgroundColor: (widget.primaryBackgroundColor != null)
+                ? widget.primaryBackgroundColor
+                : Colors.white,
             heroTag: null,
             child: AnimatedBuilder(
               animation: _controller,
               builder: (BuildContext context, Widget child) {
                 return Transform(
-                  transform:
-                      Matrix4.rotationZ(_controller.value * 0.5 * math.pi),
+                  transform: Matrix4.rotationZ(_controller.value *
+                      ((widget.rotateAngle == null)
+                          ? math.pi
+                          : widget.rotateAngle)),
                   alignment: FractionalOffset.center,
                   child: Icon(
                     _controller.isDismissed
                         ? (widget.principalIconExpand != null)
                             ? widget.principalIconExpand
-                            : Icons.add
-                        : (widget.principalIconClose != null)
-                            ? widget.principalIconClose
-                            : Icons.close,
+                            : Icons.expand_less
+                        : (widget.principalIconCollapse != null)
+                            ? widget.principalIconCollapse
+                            : Icons.expand_less,
+                    color: (widget.primaryForegroundColor != null)
+                        ? widget.primaryForegroundColor
+                        : Colors.black,
                   ),
                 );
               },
