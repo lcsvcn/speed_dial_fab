@@ -72,14 +72,28 @@ Please open an issue if something doesn't work or is not clear enough.
 
 ## Props
 
-#### `backgroundColor`
+#### `primaryBackgroundColor`
+
+Change the backgroundColor of the primary FAB button
+
+propType: `Color`
+default: `Colors.white`
+
+#### `primaryForegroundColor`
+
+Change the foregroundColor of the primary FAB button
+
+propType: `Color`
+default: `Colors.black`
+
+#### `secondaryBackgroundColor`
 
 Change the backgroundColor of the secondary FAB buttons
 
 propType: `Color`
 default: `Colors.white`
 
-#### `foregroundColor`
+#### `secondaryForegroundColor`
 
 Change the foregroundColor of the secondary FAB buttons
 
@@ -91,6 +105,14 @@ default: `Colors.black`
 Change the icons of the secondary FAB buttons
 
 propType: `List[IconData]`
+
+REQUIRED!
+
+#### `secondaryIconsOnPress`
+
+An array of function that will be called when secondary button is clicked
+
+propType: `List[Function]`
 
 REQUIRED!
 
@@ -106,14 +128,21 @@ default: 'null' (No tooltip)
 Change the icon for the principal FAB when the secondary FABs aren't visible. Expand secondary FABS.
 
 propType: `IconData`
-default: 'Icons.more_vert'
+default: 'Icons.expand_less'
 
-#### `principalIconClose`
+#### `principalIconCollapse`
 
 Change the icon for the principal FAB when the secondary FABs are visible. Close/Collapse secondary FABS.
 
 propType: `IconData`
-default: 'Icons.close'
+default: 'Icons.expand_less'
+
+#### `rotateAngle`
+
+Change the animation icon for the principal FAB, when is clicked.
+
+propType: `double`
+default: 'math.pi (180°)
 
 ## License
 
