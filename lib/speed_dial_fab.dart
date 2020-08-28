@@ -85,12 +85,12 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
                   onPressed: widget.secondaryIconsOnPress[index],
                 ),
                 Positioned(
-                  right: 55.0,
+                  right: 51.0,
                   top: 5,
                   child: Material(
                     clipBehavior: Clip.antiAlias,
                     borderRadius: BorderRadius.circular(10),
-                    elevation: 10,
+                    elevation: 0,
                     shadowColor: (widget.secondaryForegroundColor != null)
                         ? widget.secondaryForegroundColor
                         : Colors.black,
@@ -124,7 +124,8 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
       }).toList()
         ..add(
           FloatingActionButton(
-            elevation: 10,
+            elevation: 5,
+            clipBehavior: Clip.antiAlias,
             backgroundColor: (widget.primaryBackgroundColor != null)
                 ? widget.primaryBackgroundColor
                 : Colors.white,

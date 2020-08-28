@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -32,6 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       floatingActionButton: SpeedDialFabWidget(
         secondaryIconsList: [
           Icons.content_copy,
@@ -48,6 +50,10 @@ class _MyHomePageState extends State<MyHomePage> {
           () => {},
           () => {},
         ],
+        secondaryBackgroundColor: Colors.grey[900],
+        secondaryForegroundColor: Colors.grey[100],
+        primaryBackgroundColor: Colors.grey[900],
+        primaryForegroundColor: Colors.grey[100],
       ),
       appBar: AppBar(
         centerTitle: true,
