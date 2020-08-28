@@ -42,6 +42,7 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
       vsync: this,
       duration: const Duration(milliseconds: 500),
     );
+    super.initState();
   }
 
   @override
