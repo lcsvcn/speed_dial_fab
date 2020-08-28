@@ -1,3 +1,7 @@
+## 1.0.3
+
+* Removed shadow
+
 ## 1.0.2
 
 * Fix all warning
