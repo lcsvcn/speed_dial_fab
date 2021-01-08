@@ -9,12 +9,12 @@ _**Please note**: Most of the support on debugging new issues, especially with A
 ## Getting started
 
 ### Requirements
-### To install and start using react-native-qrcode-scanner:
+### To install and start using speed_dial_fab:
 
 1. `Add speed_dial_fab to your pubspec.yaml`
 ## Usage
 
-To use react-native-qrcode-scanner, `import` the `react-native-qrcode-scanner` module and use the `<QRCodeScanner />` tag. More usage examples can be seen under the `examples/` folder.
+To use speed_dial_fab, `import` the `speed_dial_fab` module and use the `speed_dial_fab` Widget. More usage examples can be seen under the `examples/` folder.
 
 Here is an example of basic usage:
 
