@@ -64,7 +64,6 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
               ),
             ),
             child: Stack(
-              overflow: Overflow.visible,
               children: <Widget>[
                 FloatingActionButton(
                   elevation: 10,
