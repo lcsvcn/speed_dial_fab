@@ -69,7 +69,7 @@ Screenshot of the above:
 <img src="https://i.imgur.com/weziv3c.png"  width="375" height="667">
 
 ![](/https://i.imgur.com/n6qPgzD.png)
-<img src="https://i.imgur.com/n6qPgzD.png"  width="375" height="667">
+<img src="https://i.imgur.com/n6qPgzD.png"  width="300" height="250">
 
 Please open an issue if something doesn't work or is not clear enough.
 
