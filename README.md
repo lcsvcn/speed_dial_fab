@@ -4,7 +4,7 @@ A Speed Dial FAB widget for Flutter
 
 This module was originally written because the author couldn't find a module that could be simply plugged into a project without requiring too much setup.
 
-_**Please note**: Most of the support on debugging new issues, especially with Android, relies on the open source community. The project is on the look out for active contributors who want to maintain this library more rigorously.
+**Please note**: Most of the support on debugging new issues relies on the open source community.
 
 ## Getting started
 
