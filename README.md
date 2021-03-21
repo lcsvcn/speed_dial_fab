@@ -68,41 +68,45 @@ Screenshot of the above:
 ![](/https://i.imgur.com/weziv3c.png)
 <img src="https://i.imgur.com/weziv3c.png"  width="375" height="667">
 
+![](/https://i.imgur.com/n6qPgzD.png)
+<img src="https://i.imgur.com/n6qPgzD.png"  width="375" height="667">
+
 Please open an issue if something doesn't work or is not clear enough.
 
 ## Props
 
 #### `primaryBackgroundColor`
 
-Change the backgroundColor of the primary FAB button
+Change the background color of the primary FAB button.
 
 propType: `Color`
 default: `Colors.white`
 
 #### `primaryForegroundColor`
 
-Change the foregroundColor of the primary FAB button
+Change the foregroundColor of the primary FAB button.
 
 propType: `Color`
 default: `Colors.black`
 
 #### `secondaryBackgroundColor`
 
-Change the backgroundColor of the secondary FAB buttons
+Change the background color of the secondary FAB buttons.
 
 propType: `Color`
 default: `Colors.white`
 
 #### `secondaryForegroundColor`
 
-Change the foregroundColor of the secondary FAB buttons
+Change the foreground color of the secondary FAB buttons.
+
 
 propType: `Color`
 default: `Colors.black`
 
 #### `secondaryIconsList`
 
-Change the icons of the secondary FAB buttons
+Change the icons of the secondary FAB buttons.
 
 propType: `List[IconData]`
 
@@ -116,9 +120,9 @@ propType: `List[Function]`
 
 REQUIRED!
 
-#### `secondaryIconsTooltip`
+#### `secondaryIconsText`
 
-Change the tooltip of the icon for the secondary FAB buttons
+Change the text of the icon for the secondary FAB buttons, the little ones that expand and colapse from the main FAB.
 
 propType: `List[String]`
 default: 'null' (No tooltip)
