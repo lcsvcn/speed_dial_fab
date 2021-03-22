@@ -1,8 +1,11 @@
-# Speed Dial - Float Action Button (speed_dial_fab)
-
+# Speed Dial - Float Action Button
 Migrated from Gitlab: https://gitlab.com/lcsvcn/speed-dial-float-action-button
 
 A Speed Dial FAB widget for Flutter
+
+![](/https://i.imgur.com/NUYF5KQ.gif)
+<img src="https://i.imgur.com/NUYF5KQ.gif"  width="375" height="667">
+
 
 This module was originally written because the author couldn't find a module that could be simply plugged into a project without requiring too much setup.
 
@@ -64,11 +67,6 @@ class _MyHomeViewState extends State<MyHomeView> {
 }
 
 ```
-
-Screenshot of the above:
-
-![](/https://i.imgur.com/NUYF5KQ.gif)
-<img src="https://i.imgur.com/NUYF5KQ.gif"  width="375" height="667">
 
 ![](/https://i.imgur.com/n6qPgzD.png)
 <img src="https://i.imgur.com/n6qPgzD.png"  width="300" height="250">
