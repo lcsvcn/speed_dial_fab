@@ -1,3 +1,9 @@
+## 2.0.0
+
+* Null Safety Update
+* Migrate from Gitlab to Github
+* Updated documentation
+
 ## 1.0.4
 
 * Update dependencies
