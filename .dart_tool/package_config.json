@@ -143,10 +143,10 @@
       "name": "speed_dial_fab",
       "rootUri": "../",
       "packageUri": "lib/",
-      "languageVersion": "2.7"
+      "languageVersion": "2.12"
     }
   ],
-  "generated": "2021-03-22T00:14:32.705089Z",
+  "generated": "2021-03-22T01:01:05.795820Z",
   "generator": "pub",
   "generatorVersion": "2.12.2"
 }

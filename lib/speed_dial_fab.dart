@@ -4,15 +4,15 @@ import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
 class SpeedDialFabWidget extends StatefulWidget {
-  final Color secondaryBackgroundColor;
-  final Color secondaryForegroundColor;
-  final Color primaryBackgroundColor;
-  final Color primaryForegroundColor;
-  final IconData principalIconCollapse;
-  final IconData principalIconExpand;
-  final double rotateAngle;
+  final Color? secondaryBackgroundColor;
+  final Color? secondaryForegroundColor;
+  final Color? primaryBackgroundColor;
+  final Color? primaryForegroundColor;
+  final IconData? principalIconCollapse;
+  final IconData? principalIconExpand;
+  final double? rotateAngle;
   final List<IconData> secondaryIconsList;
-  final List<String> secondaryIconsText;
+  final List<String>? secondaryIconsText;
   final List<Function> secondaryIconsOnPress;
 
   SpeedDialFabWidget({
@@ -23,8 +23,8 @@ class SpeedDialFabWidget extends StatefulWidget {
     this.principalIconExpand,
     this.rotateAngle,
     this.principalIconCollapse,
-    @required this.secondaryIconsList,
-    @required this.secondaryIconsOnPress,
+    required this.secondaryIconsList,
+    required this.secondaryIconsOnPress,
     this.secondaryIconsText,
   });
 
@@ -34,7 +34,7 @@ class SpeedDialFabWidget extends StatefulWidget {
 
 class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
     with TickerProviderStateMixin {
-  AnimationController _controller;
+  late AnimationController _controller;
 
   @override
   void initState() {
@@ -67,9 +67,7 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
               children: <Widget>[
                 FloatingActionButton(
                   elevation: 10,
-                  tooltip: (widget.secondaryIconsText != null)
-                      ? widget.secondaryIconsText[index]
-                      : null,
+                  tooltip: widget.secondaryIconsText![index],
                   heroTag: null,
                   mini: true,
                   backgroundColor: (widget.secondaryBackgroundColor != null)
@@ -81,7 +79,8 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
                         ? widget.secondaryForegroundColor
                         : Colors.black,
                   ),
-                  onPressed: widget.secondaryIconsOnPress[index],
+                  onPressed:
+                      widget.secondaryIconsOnPress[index] as void Function(),
                 ),
                 Positioned(
                   right: 51.0,
@@ -100,7 +99,7 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
                       padding: EdgeInsets.all(9),
                       child: Text(
                         (widget.secondaryIconsText != null)
-                            ? widget.secondaryIconsText[index]
+                            ? widget.secondaryIconsText![index]
                             : "",
                         style: TextStyle(
                           color: (widget.secondaryForegroundColor != null)
@@ -131,12 +130,12 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
             heroTag: null,
             child: AnimatedBuilder(
               animation: _controller,
-              builder: (BuildContext context, Widget child) {
+              builder: (BuildContext context, Widget? child) {
                 return Transform(
                   transform: Matrix4.rotationZ(_controller.value *
                       ((widget.rotateAngle == null)
                           ? math.pi
-                          : widget.rotateAngle)),
+                          : widget.rotateAngle!)),
                   alignment: FractionalOffset.center,
                   child: Icon(
                     _controller.isDismissed
