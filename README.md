@@ -8,20 +8,14 @@ A Speed Dial FAB widget for Flutter
 
 **Please note**: Most of the support on debugging new issues relies on the open source community.
 
-## Getting started
-
-### Requirements
-### To install and start using speed_dial_fab:
-
-1. `Add speed_dial_fab to your pubspec.yaml`
 ## Usage
 
 To use speed_dial_fab, `import` the `speed_dial_fab` module and use the `speed_dial_fab` Widget. More usage examples can be seen under the `examples/` folder.
 
+Here is the Primary and Secondary FAB reference:
+
 ![](/https://i.imgur.com/n6qPgzD.png)
 <img src="https://i.imgur.com/n6qPgzD.png"  width="300" height="250">
-
-Please open an issue if something doesn't work or is not clear enough.
 
 ## Props
 
@@ -98,6 +92,7 @@ Change the animation icon for the principal FAB, when is clicked.
 propType: `double`
 default: 'math.pi (180°)
 
-## License
+Please open an issue if something doesn't work or is not clear enough.
 
+## License
 See [LICENSE.md](LICENSE.md)
