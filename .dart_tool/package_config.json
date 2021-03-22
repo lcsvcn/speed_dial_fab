@@ -56,12 +56,6 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "flutter_icons",
-      "rootUri": "file:///Users/lucasnicolau/.pub-cache/git/flutter-icons-0831af6f0f239d20fb9578612d7a893e2a53d044/",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "flutter_test",
       "rootUri": "file:///Users/lucasnicolau/flutter/packages/flutter_test",
       "packageUri": "lib/",
@@ -146,7 +140,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2021-03-22T01:01:05.795820Z",
+  "generated": "2021-03-22T01:03:33.764308Z",
   "generator": "pub",
   "generatorVersion": "2.12.2"
 }
