@@ -1,3 +1,7 @@
+## 2.0.1
+
+* Fixed minor bugs of previous release 
+
 ## 2.0.0
 
 * Null Safety Update
