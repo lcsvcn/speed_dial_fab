@@ -1,10 +1,10 @@
-# Speed Dial - Float Action Button (speed_dial_fab)
-
+# Speed Dial - Float Action Button
 Migrated from Gitlab: https://gitlab.com/lcsvcn/speed-dial-float-action-button
 
 A Speed Dial FAB widget for Flutter
 
-This module was originally written because the author couldn't find a module that could be simply plugged into a project without requiring too much setup.
+![](/https://i.imgur.com/NUYF5KQ.gif)
+<img src="https://i.imgur.com/NUYF5KQ.gif"  width="375" height="667">
 
 **Please note**: Most of the support on debugging new issues relies on the open source community.
 
@@ -17,58 +17,6 @@ This module was originally written because the author couldn't find a module tha
 ## Usage
 
 To use speed_dial_fab, `import` the `speed_dial_fab` module and use the `speed_dial_fab` Widget. More usage examples can be seen under the `examples/` folder.
-
-Here is an example of basic usage:
-
-```
-import 'package:flutter/material.dart';
-import 'package:speed_dial_fab/speed_dial_fab_widget.dart';
-
-class MyHomeView extends StatefulWidget {
-  final String title;
-  
-  MyHomeView({Key key, this.title})
-      : super(key: key);
-
-  @override
-  _MyHomeViewState createState() => _MyHomeViewState();
-}
-
-class _MyHomeViewState extends State<MyHomeView> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      floatingActionButton: SpeedDialFabWidget(
-        secondaryIconsList: [
-          Icons.content_copy,
-          Icons.content_paste,
-          Icons.content_cut,
-        ],
-        secondaryIconsTooltip: [
-          "Copy",
-          "Paste",
-          "Cut",
-        ],
-      ),
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(widget.title),
-      ),
-      body: SafeArea(
-        child: Center(
-            child: Text("Test Speed Dial FAB"),
-        ),
-      ),
-    );
-  }
-}
-
-```
-
-Screenshot of the above:
-
-![](/https://i.imgur.com/NUYF5KQ.gif)
-<img src="https://i.imgur.com/NUYF5KQ.gif"  width="375" height="667">
 
 ![](/https://i.imgur.com/n6qPgzD.png)
 <img src="https://i.imgur.com/n6qPgzD.png"  width="300" height="250">
