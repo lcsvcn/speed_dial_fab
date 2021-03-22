@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'speed_dial_fab.dart';
+import 'package:speed_dial_fab/speed_dial_fab.dart';
 
 void main() {
   runApp(MyApp());
