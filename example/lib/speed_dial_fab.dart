@@ -64,9 +64,10 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
               ),
             ),
             child: Stack(
+              clipBehavior: Clip.none,
               children: <Widget>[
                 FloatingActionButton(
-                  elevation: 10,
+                  elevation: 0,
                   tooltip: (widget.secondaryIconsText != null)
                       ? widget.secondaryIconsText[index]
                       : null,
@@ -92,7 +93,7 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
                     elevation: 0,
                     shadowColor: (widget.secondaryForegroundColor != null)
                         ? widget.secondaryForegroundColor
-                        : Colors.black,
+                        : Colors.transparent,
                     color: (widget.secondaryBackgroundColor != null)
                         ? widget.secondaryBackgroundColor
                         : Colors.white,

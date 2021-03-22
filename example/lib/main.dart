@@ -33,7 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.blueGrey[700],
       floatingActionButton: SpeedDialFabWidget(
         secondaryIconsList: [
           Icons.content_copy,
@@ -61,7 +61,12 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: SafeArea(
         child: Center(
-          child: Text("Test Speed Dial FAB"),
+          child: Text(
+            "Test Speed Dial FAB Example",
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
         ),
       ),
     );
