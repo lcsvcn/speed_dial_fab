@@ -75,14 +75,14 @@ Change the text of the icon for the secondary FAB buttons, the little ones that 
 propType: `List[String]`
 default: 'null' (No tooltip)
 
-#### `principalIconExpand`
+#### `primaryIconExpand`
 
 Change the icon for the principal FAB when the secondary FABs aren't visible. Expand secondary FABS.
 
 propType: `IconData`
 default: 'Icons.expand_less'
 
-#### `principalIconCollapse`
+#### `primaryIconCollapse`
 
 Change the icon for the principal FAB when the secondary FABs are visible. Close/Collapse secondary FABS.
 
@@ -97,6 +97,9 @@ propType: `double`
 default: 'math.pi (180°)
 
 Please open an issue if something doesn't work or is not clear enough.
+
+## ToDo
+- [ ] Add Test to every components
 
 ## License
 See [LICENSE.md](LICENSE.md)

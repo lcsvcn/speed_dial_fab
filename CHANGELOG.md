@@ -1,6 +1,15 @@
+## 2.1.1
+* Added dartdoc
+* Improved Null Safety code
+* Added throw if secondary params is not the same length
+
+## 2.1.0
+* Changed to primaryIconCollapse
+* Changed to primaryIconExpand
+
 ## 2.0.1
 
-* Fixed minor bugs of previous release 
+* Fixed minor bugs of previous release
 
 ## 2.0.0
 
