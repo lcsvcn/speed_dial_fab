@@ -1,5 +1,6 @@
 # Speed Dial - Float Action Button
-Migrated from Gitlab: https://gitlab.com/lcsvcn/speed-dial-float-action-button
+
+[![Pub Version](https://img.shields.io/pub/v/speed_dial_fab)](https://pub.dev/packages/speed_dial_fab)
 
 A Speed Dial FAB widget for Flutter
 
