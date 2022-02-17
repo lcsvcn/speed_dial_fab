@@ -6,31 +6,31 @@ import 'dart:math' as math;
 class SpeedDialFabWidget extends StatefulWidget {
   /// [secondaryBackgroundColor] Changes the background color of the secondary FAB button.
   /// The default value is [Colors.white]
-  final Color? secondaryBackgroundColor;
+  final Color secondaryBackgroundColor;
 
   /// [secondaryForegroundColor] Changes the foreground color of the secondary FAB button.
   /// The default value is [Colors.black]
-  final Color? secondaryForegroundColor;
+  final Color secondaryForegroundColor;
 
   /// [primaryBackgroundColor] Changes the background color of the primary FAB button.
   /// The default value is [Colors.white]
-  final Color? primaryBackgroundColor;
+  final Color primaryBackgroundColor;
 
   /// [primaryForegroundColor] Changes the foreground color of the primary FAB button.
   /// The default value is [Colors.black]
-  final Color? primaryForegroundColor;
+  final Color primaryForegroundColor;
 
   /// [primaryIconCollapse] Changes primary icon when it is collapsed
   /// The default value is [Icons.expand_less]
-  final IconData? primaryIconCollapse;
+  final IconData primaryIconCollapse;
 
   /// [primaryIconExpand] Change primary icon when it is expanded
   /// The default value is [Icons.expand_less]
-  final IconData? primaryIconExpand;
+  final IconData primaryIconExpand;
 
   /// [rotateAngle] Change the rotation angle to animate primary FAB when clicked
   /// The default value is [math.pi]
-  final double? rotateAngle;
+  final double rotateAngle;
 
   /// Required: [secondaryIconsList] Change the list of icons of secondary FAB, , should be the same size of @secondaryIconsText and @secondaryIconsOnPress
   /// Should have the same size of [secondaryIconsOnPress] and [secondaryIconsList]
@@ -46,13 +46,13 @@ class SpeedDialFabWidget extends StatefulWidget {
   final List<Function> secondaryIconsOnPress;
 
   SpeedDialFabWidget({
-    this.secondaryBackgroundColor,
-    this.secondaryForegroundColor,
-    this.primaryBackgroundColor,
-    this.primaryForegroundColor,
-    this.primaryIconExpand,
-    this.rotateAngle,
-    this.primaryIconCollapse,
+    this.secondaryBackgroundColor = Colors.white,
+    this.secondaryForegroundColor = Colors.black,
+    this.primaryBackgroundColor = Colors.white,
+    this.primaryForegroundColor = Colors.black,
+    this.primaryIconCollapse = Icons.expand_less,
+    this.primaryIconExpand = Icons.expand_less,
+    this.rotateAngle = math.pi,
     required this.secondaryIconsList,
     required this.secondaryIconsOnPress,
     this.secondaryIconsText,
@@ -113,10 +113,10 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
                   heroTag: null,
                   mini: true,
                   backgroundColor:
-                      widget.secondaryBackgroundColor ?? Colors.white,
+                      widget.secondaryBackgroundColor,
                   child: Icon(
                     widget.secondaryIconsList[index],
-                    color: widget.secondaryForegroundColor ?? Colors.black,
+                    color: widget.secondaryForegroundColor,
                   ),
                   onPressed:
                       widget.secondaryIconsOnPress[index] as void Function(),
@@ -129,8 +129,8 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
                     borderRadius: BorderRadius.circular(10),
                     elevation: 0,
                     shadowColor:
-                        widget.secondaryForegroundColor ?? Colors.black,
-                    color: widget.secondaryBackgroundColor ?? Colors.white,
+                        widget.secondaryForegroundColor,
+                    color: widget.secondaryBackgroundColor,
                     child: Padding(
                       padding: EdgeInsets.all(9),
                       child: Text(
@@ -139,7 +139,7 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
                             : "",
                         style: TextStyle(
                           color:
-                              widget.secondaryForegroundColor ?? Colors.black,
+                              widget.secondaryForegroundColor,
                           fontWeight: FontWeight.w900,
                           fontSize: 15,
                           letterSpacing: 0.3,
@@ -159,21 +159,21 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
           FloatingActionButton(
             elevation: 5,
             clipBehavior: Clip.antiAlias,
-            backgroundColor: widget.primaryBackgroundColor ?? Colors.white,
+            backgroundColor: widget.primaryBackgroundColor,
             heroTag: null,
             child: AnimatedBuilder(
               animation: _controller,
               builder: (BuildContext context, Widget? child) {
                 return Transform(
                   transform: Matrix4.rotationZ(
-                    _controller.value * (widget.rotateAngle ?? math.pi),
+                    _controller.value * (widget.rotateAngle),
                   ),
                   alignment: FractionalOffset.center,
                   child: Icon(
                     _controller.isDismissed
-                        ? widget.primaryIconExpand ?? Icons.expand_less
-                        : widget.primaryIconCollapse ?? Icons.expand_less,
-                    color: widget.primaryForegroundColor ?? Colors.black,
+                        ? widget.primaryIconExpand
+                        : widget.primaryIconCollapse,
+                    color: widget.primaryForegroundColor,
                   ),
                 );
               },
