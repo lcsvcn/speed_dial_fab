@@ -87,8 +87,12 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
     super.initState();
   }
 
-  void forceDismiss() {
+  void forceHideSecondaryFab() {
     _controller.reverse();
+  }
+
+  void forceShowSecondaryFab() {
+    _controller.forward();
   }
 
   @override
