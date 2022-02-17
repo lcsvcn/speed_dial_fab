@@ -87,6 +87,18 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
     super.initState();
   }
 
+  /// [forceExpandSecondaryFab] Use this to force animate expand the secondary fab
+  /// Avoid using this during the animation
+  void forceExpandSecondaryFab() {
+    _controller.forward();
+  }
+
+  /// [forceCollapseSecondaryFab] Use this to force collapse the secondary fab.
+  /// Avoid using this during the animation
+  void forceCollapseSecondaryFab() {
+    _controller.reverse();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -112,8 +124,7 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
                   tooltip: widget.secondaryIconsText![index],
                   heroTag: null,
                   mini: true,
-                  backgroundColor:
-                      widget.secondaryBackgroundColor,
+                  backgroundColor: widget.secondaryBackgroundColor,
                   child: Icon(
                     widget.secondaryIconsList[index],
                     color: widget.secondaryForegroundColor,
@@ -128,8 +139,7 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
                     clipBehavior: Clip.antiAlias,
                     borderRadius: BorderRadius.circular(10),
                     elevation: 0,
-                    shadowColor:
-                        widget.secondaryForegroundColor,
+                    shadowColor: widget.secondaryForegroundColor,
                     color: widget.secondaryBackgroundColor,
                     child: Padding(
                       padding: EdgeInsets.all(9),
@@ -138,8 +148,7 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
                             ? widget.secondaryIconsText![index]
                             : "",
                         style: TextStyle(
-                          color:
-                              widget.secondaryForegroundColor,
+                          color: widget.secondaryForegroundColor,
                           fontWeight: FontWeight.w900,
                           fontSize: 15,
                           letterSpacing: 0.3,
