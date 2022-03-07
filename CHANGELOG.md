@@ -1,3 +1,7 @@
+## 2.2.1
+
+* Implemented requested [feature](https://github.com/lcsvcn/speed_dial_fab/issues/1)
+
 ## 2.1.1
 * Added dartdoc
 * Improved Null Safety code
