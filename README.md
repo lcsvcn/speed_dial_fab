@@ -93,6 +93,17 @@ Change the animation icon for the principal FAB, when is clicked.
 propType: `double`
 default: 'math.pi (180°)
 
+## Stateful functions
+
+#### `forceExpandSecondaryFab`
+
+Force animation of expand the secondary fab. Note: This can mess the animation, so use it wisely.
+
+#### `forceCollapseSecondaryFab`
+
+Force animation of collapse the secondary fab. Note: This can mess the animation, so use it wisely.
+
+
 Please open an issue if something doesn't work or is not clear enough.
 
 ## ToDo
