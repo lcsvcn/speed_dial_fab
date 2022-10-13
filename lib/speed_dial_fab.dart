@@ -20,6 +20,14 @@ class SpeedDialFabWidget extends StatefulWidget {
   /// The default value is [Colors.black]
   final Color primaryForegroundColor;
 
+  /// [primaryElevation] Changes the elevation of the primary FAB button.
+  /// The default value is [10.0]
+  final double primaryElevation;
+
+  /// [secondaryElevation] Changes the elevation of the secondary FAB button.
+  /// The default value is [10.0]
+  final double secondaryElevation;
+
   /// [primaryIconCollapse] Changes primary icon when it is collapsed
   /// The default value is [Icons.expand_less]
   final IconData primaryIconCollapse;
@@ -56,6 +64,8 @@ class SpeedDialFabWidget extends StatefulWidget {
     required this.secondaryIconsList,
     required this.secondaryIconsOnPress,
     this.secondaryIconsText,
+    this.primaryElevation = 5.0,
+    this.secondaryElevation = 10.0,
   });
 
   @override
@@ -120,7 +130,7 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
             child: Stack(
               children: <Widget>[
                 FloatingActionButton(
-                  elevation: 10,
+                  elevation: widget.secondaryElevation,
                   tooltip: widget.secondaryIconsText![index],
                   heroTag: null,
                   mini: true,
@@ -166,7 +176,7 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
       }).toList()
         ..add(
           FloatingActionButton(
-            elevation: 5,
+            elevation: widget.primaryElevation,
             clipBehavior: Clip.antiAlias,
             backgroundColor: widget.primaryBackgroundColor,
             heroTag: null,
