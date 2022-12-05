@@ -86,6 +86,18 @@ Change the icon for the principal FAB when the secondary FABs are visible. Close
 propType: `IconData`
 default: 'Icons.expand_less'
 
+primaryElevation
+Change the elevation of the primary FAB button.
+
+propType: `double`
+default: `10.0`
+
+secondaryElevation
+Change the elevation of the secondary FAB button.
+
+propType: `double`
+default: `10.0`
+
 #### `rotateAngle`
 
 Change the animation icon for the principal FAB, when is clicked.
