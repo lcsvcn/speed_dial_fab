@@ -1,3 +1,6 @@
+## 2.2.3
+- Fix https://github.com/lcsvcn/speed_dial_fab/issues/4
+
 ## 2.2.2
 - Fix analysis issues
 

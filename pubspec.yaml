@@ -2,7 +2,7 @@ name: speed_dial_fab
 description: This is a library that implements the Speed Dial Float Action Button in Flutter. Fell Free to colaborate, every PR is welcome!
 repository: https://github.com/lcsvcn/speed_dial_fab.git
 homepage: https://github.com/lcsvcn/speed_dial_fab.git
-version: 2.2.2
+version: 2.2.3
 
 environment:
   sdk: ">=2.12.0 <3.0.0"

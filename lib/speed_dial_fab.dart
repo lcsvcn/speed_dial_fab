@@ -62,8 +62,7 @@ class SpeedDialFabWidget extends StatefulWidget {
   State createState() => SpeedDialFabWidgetState();
 }
 
-class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
-    with TickerProviderStateMixin {
+class SpeedDialFabWidgetState extends State<SpeedDialFabWidget> with TickerProviderStateMixin {
   late AnimationController _controller;
 
   @override
@@ -73,13 +72,11 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
       duration: const Duration(milliseconds: 500),
     );
 
-    if (widget.secondaryIconsList.length !=
-        widget.secondaryIconsOnPress.length) {
+    if (widget.secondaryIconsList.length != widget.secondaryIconsOnPress.length) {
       throw ("secondaryIconsList should have the same length of secondaryIconsOnPress");
     }
     if (widget.secondaryIconsText != null) {
-      if (widget.secondaryIconsText?.length !=
-          widget.secondaryIconsOnPress.length) {
+      if (widget.secondaryIconsText?.length != widget.secondaryIconsOnPress.length) {
         throw ("secondaryIconsText should have the same length of secondaryIconsOnPress");
       }
     }
@@ -118,7 +115,8 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
               ),
             ),
             child: Stack(
-              children: <Widget>[
+              clipBehavior: Clip.none,
+              children: [
                 FloatingActionButton(
                   elevation: 10,
                   tooltip: widget.secondaryIconsText![index],
@@ -129,8 +127,7 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
                     widget.secondaryIconsList[index],
                     color: widget.secondaryForegroundColor,
                   ),
-                  onPressed:
-                      widget.secondaryIconsOnPress[index] as void Function(),
+                  onPressed: widget.secondaryIconsOnPress[index] as void Function(),
                 ),
                 Positioned(
                   right: 51.0,
@@ -144,9 +141,7 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
                     child: Padding(
                       padding: EdgeInsets.all(9),
                       child: Text(
-                        (widget.secondaryIconsText != null)
-                            ? widget.secondaryIconsText![index]
-                            : "",
+                        widget.secondaryIconsText?[index] ?? "",
                         style: TextStyle(
                           color: widget.secondaryForegroundColor,
                           fontWeight: FontWeight.w900,
@@ -179,9 +174,7 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
                   ),
                   alignment: FractionalOffset.center,
                   child: Icon(
-                    _controller.isDismissed
-                        ? widget.primaryIconExpand
-                        : widget.primaryIconCollapse,
+                    _controller.isDismissed ? widget.primaryIconExpand : widget.primaryIconCollapse,
                     color: widget.primaryForegroundColor,
                   ),
                 );
