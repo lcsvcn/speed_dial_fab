@@ -25,6 +25,7 @@ Here is the Primary and Secondary FAB reference:
 Change the background color of the primary FAB button.
 
 propType: `Color`
+
 default: `Colors.white`
 
 #### `primaryForegroundColor`
@@ -32,6 +33,7 @@ default: `Colors.white`
 Change the foregroundColor of the primary FAB button.
 
 propType: `Color`
+
 default: `Colors.black`
 
 #### `secondaryBackgroundColor`
@@ -39,14 +41,15 @@ default: `Colors.black`
 Change the background color of the secondary FAB buttons.
 
 propType: `Color`
+
 default: `Colors.white`
 
 #### `secondaryForegroundColor`
 
 Change the foreground color of the secondary FAB buttons.
 
-
 propType: `Color`
+
 default: `Colors.black`
 
 #### `secondaryIconsList`
@@ -70,32 +73,37 @@ REQUIRED!
 Change the text of the icon for the secondary FAB buttons, the little ones that expand and colapse from the main FAB.
 
 propType: `List[String]`
-default: 'null' (No tooltip)
+
+default: `null` (No tooltip)
 
 #### `primaryIconExpand`
 
 Change the icon for the principal FAB when the secondary FABs aren't visible. Expand secondary FABS.
 
 propType: `IconData`
-default: 'Icons.expand_less'
+
+default: `Icons.expand_less`
 
 #### `primaryIconCollapse`
 
 Change the icon for the principal FAB when the secondary FABs are visible. Close/Collapse secondary FABS.
 
 propType: `IconData`
-default: 'Icons.expand_less'
+
+default: `Icons.expand_less`
 
 primaryElevation
 Change the elevation of the primary FAB button.
 
 propType: `double`
+
 default: `10.0`
 
 secondaryElevation
 Change the elevation of the secondary FAB button.
 
 propType: `double`
+
 default: `10.0`
 
 #### `rotateAngle`
@@ -103,6 +111,7 @@ default: `10.0`
 Change the animation icon for the principal FAB, when is clicked.
 
 propType: `double`
+
 default: 'math.pi (180°)
 
 ## Stateful functions
