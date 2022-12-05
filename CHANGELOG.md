@@ -1,5 +1,9 @@
+## 2.3.0
+-  Added primaryElevation and secondaryElevation[PR #5](https://github.com/lcsvcn/speed_dial_fab/pull/5)
+
+
 ## 2.2.3
-- Fix https://github.com/lcsvcn/speed_dial_fab/issues/4
+- Fix [Issue #5](https://github.com/lcsvcn/speed_dial_fab/issues/4)
 
 ## 2.2.2
 - Fix analysis issues
