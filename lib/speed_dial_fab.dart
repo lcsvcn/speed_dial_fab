@@ -5,17 +5,16 @@ import 'dart:math' as math;
 
 enum Alignment { End, Start, Center }
 
-
 enum Orientation { Vertical, Horizontal }
 
 class SpeedDialFabWidget extends StatefulWidget {
   /// [alignment] Changes the position of the widget.
-   /// Possible values are end, start and center.
+  /// Possible values are End, Start and Center.
   /// The default value is [Alignment.End]
   final Alignment alignment;
 
-   /// [orientation] Changes the orientation arrangement.
-   /// Possible values are horizontal and vertical.
+  /// [orientation] Changes the orientation arrangement.
+  /// Possible values are Horizontal and Vertical.
   /// The default value is [Orientation.Vertical]
   final Orientation orientation;
 
@@ -124,7 +123,7 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget> with TickerProvi
   }
 
   Widget verticalAligmentWidget() {
-    return Column(,
+    return Column(
       mainAxisSize: MainAxisSize.min,
       children: List.generate(widget.secondaryIconsList.length, (int index) {
         Widget secondaryFAB = Container(
