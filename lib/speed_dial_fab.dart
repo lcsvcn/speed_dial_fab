@@ -3,7 +3,22 @@ library speed_dial_fab_widget;
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
+enum Alignment { End, Start, Center }
+
+
+enum Orientation { Vertical, Horizontal }
+
 class SpeedDialFabWidget extends StatefulWidget {
+  /// [alignment] Changes the position of the widget.
+   /// Possible values are end, start and center.
+  /// The default value is [Alignment.End]
+  final Alignment alignment;
+
+   /// [orientation] Changes the orientation arrangement.
+   /// Possible values are horizontal and vertical.
+  /// The default value is [Orientation.Vertical]
+  final Orientation orientation;
+
   /// [secondaryBackgroundColor] Changes the background color of the secondary FAB button.
   /// The default value is [Colors.white]
   final Color secondaryBackgroundColor;
@@ -54,6 +69,8 @@ class SpeedDialFabWidget extends StatefulWidget {
   final List<Function> secondaryIconsOnPress;
 
   SpeedDialFabWidget({
+    this.alignment = Alignment.End,
+    this.orientation = Orientation.Vertical,
     this.secondaryBackgroundColor = Colors.white,
     this.secondaryForegroundColor = Colors.black,
     this.primaryBackgroundColor = Colors.white,
@@ -72,8 +89,7 @@ class SpeedDialFabWidget extends StatefulWidget {
   State createState() => SpeedDialFabWidgetState();
 }
 
-class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
-    with TickerProviderStateMixin {
+class SpeedDialFabWidgetState extends State<SpeedDialFabWidget> with TickerProviderStateMixin {
   late AnimationController _controller;
 
   @override
@@ -83,13 +99,11 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
       duration: const Duration(milliseconds: 500),
     );
 
-    if (widget.secondaryIconsList.length !=
-        widget.secondaryIconsOnPress.length) {
+    if (widget.secondaryIconsList.length != widget.secondaryIconsOnPress.length) {
       throw ("secondaryIconsList should have the same length of secondaryIconsOnPress");
     }
     if (widget.secondaryIconsText != null) {
-      if (widget.secondaryIconsText?.length !=
-          widget.secondaryIconsOnPress.length) {
+      if (widget.secondaryIconsText?.length != widget.secondaryIconsOnPress.length) {
         throw ("secondaryIconsText should have the same length of secondaryIconsOnPress");
       }
     }
@@ -109,9 +123,8 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
     _controller.reverse();
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Column(
+  Widget verticalAligmentWidget() {
+    return Column(,
       mainAxisSize: MainAxisSize.min,
       children: List.generate(widget.secondaryIconsList.length, (int index) {
         Widget secondaryFAB = Container(
@@ -140,8 +153,7 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
                     widget.secondaryIconsList[index],
                     color: widget.secondaryForegroundColor,
                   ),
-                  onPressed:
-                      widget.secondaryIconsOnPress[index] as void Function(),
+                  onPressed: widget.secondaryIconsOnPress[index] as void Function(),
                 ),
                 Positioned(
                   right: 51.0,
@@ -188,9 +200,7 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
                   ),
                   alignment: FractionalOffset.center,
                   child: Icon(
-                    _controller.isDismissed
-                        ? widget.primaryIconExpand
-                        : widget.primaryIconCollapse,
+                    _controller.isDismissed ? widget.primaryIconExpand : widget.primaryIconCollapse,
                     color: widget.primaryForegroundColor,
                   ),
                 );
@@ -206,5 +216,10 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
           ),
         ),
     );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return verticalAligmentWidget();
   }
 }
