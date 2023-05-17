@@ -3,7 +3,21 @@ library speed_dial_fab_widget;
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
+enum Alignment { End, Start, Center }
+
+enum Orientation { Vertical, Horizontal }
+
 class SpeedDialFabWidget extends StatefulWidget {
+  /// [alignment] Changes the position of the widget.
+  /// Possible values are End, Start and Center.
+  /// The default value is [Alignment.End]
+  final Alignment alignment;
+
+  /// [orientation] Changes the orientation arrangement.
+  /// Possible values are Horizontal and Vertical.
+  /// The default value is [Orientation.Vertical]
+  final Orientation orientation;
+
   /// [secondaryBackgroundColor] Changes the background color of the secondary FAB button.
   /// The default value is [Colors.white]
   final Color secondaryBackgroundColor;
@@ -54,6 +68,8 @@ class SpeedDialFabWidget extends StatefulWidget {
   final List<Function> secondaryIconsOnPress;
 
   SpeedDialFabWidget({
+    this.alignment = Alignment.End,
+    this.orientation = Orientation.Vertical,
     this.secondaryBackgroundColor = Colors.white,
     this.secondaryForegroundColor = Colors.black,
     this.primaryBackgroundColor = Colors.white,
@@ -109,8 +125,7 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
     _controller.reverse();
   }
 
-  @override
-  Widget build(BuildContext context) {
+  Widget verticalAligmentWidget() {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: List.generate(widget.secondaryIconsList.length, (int index) {
@@ -206,5 +221,10 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
           ),
         ),
     );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return verticalAligmentWidget();
   }
 }
