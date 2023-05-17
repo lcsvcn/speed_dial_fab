@@ -20,24 +20,6 @@ Here is the Primary and Secondary FAB reference:
 
 ## Props
 
-#### `alignment`
-
-Changes the position of the widget.
-Possible values are End, Start and Center.
-
-propType: `Alignment` (Enum)
-
-default: `Alignment.End`
-
-#### `orientation`
-
-Changes the orientation arrangement.
-Possible values are Vertical and Horizontal
-
-propType: `Orientation` (Enum)
-
-default: `Orientation.Vertical`
-
 #### `primaryBackgroundColor`
 
 Change the background color of the primary FAB button.
@@ -142,12 +124,11 @@ Force animation of expand the secondary fab. Note: This can mess the animation, 
 
 Force animation of collapse the secondary fab. Note: This can mess the animation, so use it wisely.
 
+
 Please open an issue if something doesn't work or is not clear enough.
 
 ## ToDo
-
 - [ ] Add Test to every components
 
 ## License
-
 See [LICENSE.md](LICENSE.md)
