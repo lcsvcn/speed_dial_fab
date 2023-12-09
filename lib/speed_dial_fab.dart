@@ -140,8 +140,10 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
                     widget.secondaryIconsList[index],
                     color: widget.secondaryForegroundColor,
                   ),
-                  onPressed:
-                      widget.secondaryIconsOnPress[index] as void Function(),
+                   onPressed: () {
+                    widget.secondaryIconsOnPress[index]();
+                     _controller.reverse();
+                  },
                 ),
                 Positioned(
                   right: 51.0,
