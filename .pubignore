@@ -1,0 +1,6 @@
+# These files are checked into the repository for local development but are
+# not part of the published package.
+pubspec.lock
+example/pubspec.lock
+example/android/.project
+example/android/.settings/
