@@ -131,6 +131,15 @@ propType: `SpeedDialDirection`
 
 default: `SpeedDialDirection.up`
 
+#### `blurBackground`
+
+Blurs the screen behind the speed dial while its secondary actions are shown.
+Use `blurBackgroundSigma` to control blur strength.
+
+propType: `bool`
+
+default: `false`
+
 ## Stateful functions
 
 #### `forceExpandSecondaryFab`

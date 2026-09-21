@@ -2,6 +2,7 @@ library speed_dial_fab_widget;
 
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
+import 'dart:ui';
 
 /// Direction in which secondary actions are displayed.
 enum SpeedDialDirection { up, down, left, right }
@@ -49,6 +50,12 @@ class SpeedDialFabWidget extends StatefulWidget {
   /// Direction in which the secondary FABs expand.
   final SpeedDialDirection direction;
 
+  /// Whether to blur the screen behind the expanded actions.
+  final bool blurBackground;
+
+  /// Gaussian blur strength used when [blurBackground] is enabled.
+  final double blurBackgroundSigma;
+
   /// Required: [secondaryIconsList] Change the list of icons of secondary FAB, , should be the same size of @secondaryIconsText and @secondaryIconsOnPress
   /// Should have the same size of [secondaryIconsOnPress] and [secondaryIconsList]
   final List<IconData> secondaryIconsList;
@@ -73,12 +80,14 @@ class SpeedDialFabWidget extends StatefulWidget {
     this.rotateAngle = math.pi,
     this.animationDuration = const Duration(milliseconds: 500),
     this.direction = SpeedDialDirection.up,
+    this.blurBackground = false,
+    this.blurBackgroundSigma = 5.0,
     required this.secondaryIconsList,
     required this.secondaryIconsOnPress,
     this.secondaryIconsText,
     this.primaryElevation = 5.0,
     this.secondaryElevation = 10.0,
-  });
+  }) : assert(blurBackgroundSigma >= 0);
 
   @override
   State<SpeedDialFabWidget> createState() => _SpeedDialFabWidgetState();
@@ -87,6 +96,7 @@ class SpeedDialFabWidget extends StatefulWidget {
 class _SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
     with TickerProviderStateMixin {
   late AnimationController _controller;
+  OverlayEntry? _blurOverlay;
 
   @override
   void initState() {
@@ -112,13 +122,44 @@ class _SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
   /// [forceExpandSecondaryFab] Use this to force animate expand the secondary fab
   /// Avoid using this during the animation
   void forceExpandSecondaryFab() {
+    _showBlurOverlay();
     _controller.forward();
   }
 
   /// [forceCollapseSecondaryFab] Use this to force collapse the secondary fab.
   /// Avoid using this during the animation
   void forceCollapseSecondaryFab() {
-    _controller.reverse();
+    _collapse();
+  }
+
+  void _collapse() => _controller.reverse().whenComplete(_removeBlurOverlay);
+
+  void _showBlurOverlay() {
+    if (!widget.blurBackground || _blurOverlay != null) return;
+    _blurOverlay = OverlayEntry(
+      builder: (context) => IgnorePointer(
+        child: BackdropFilter(
+          filter: ImageFilter.blur(
+            sigmaX: widget.blurBackgroundSigma,
+            sigmaY: widget.blurBackgroundSigma,
+          ),
+          child: const SizedBox.expand(),
+        ),
+      ),
+    );
+    Overlay.of(context, rootOverlay: true).insert(_blurOverlay!);
+  }
+
+  void _removeBlurOverlay() {
+    _blurOverlay?.remove();
+    _blurOverlay = null;
+  }
+
+  @override
+  void dispose() {
+    _removeBlurOverlay();
+    _controller.dispose();
+    super.dispose();
   }
 
   @override
@@ -154,7 +195,7 @@ class _SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
                   ),
                    onPressed: () {
                     widget.secondaryIconsOnPress[index]();
-                     _controller.reverse();
+                     _collapse();
                   },
 
                 ),
@@ -212,9 +253,9 @@ class _SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
             ),
             onPressed: () {
               if (_controller.isDismissed) {
-                _controller.forward();
+                forceExpandSecondaryFab();
               } else {
-                _controller.reverse();
+                _collapse();
               }
             },
           );
