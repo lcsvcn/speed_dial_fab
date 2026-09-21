@@ -2,16 +2,34 @@
 
 [![Pub Version](https://img.shields.io/pub/v/speed_dial_fab)](https://pub.dev/packages/speed_dial_fab)
 
-A Speed Dial FAB widget for Flutter
+A customizable Speed Dial FAB widget for Flutter, including vertical, horizontal,
+and radial/carousel layouts.
 
-![](/https://i.imgur.com/NUYF5KQ.gif)
-<img src="https://i.imgur.com/NUYF5KQ.gif"  width="375" height="667">
+![Radial glass speed dial](assets/speed_dial_radial_glass.gif)
+
+<img src="assets/speed_dial_radial_glass.gif" width="540" alt="Radial glass speed dial animation">
 
 **Please note**: Most of the support on debugging new issues relies on the open source community.
 
 ## Usage
 
 To use speed_dial_fab, `import` the `speed_dial_fab` module and use the `speed_dial_fab` Widget. More usage examples can be seen under the `examples/` folder.
+
+### Radial glass example
+
+```dart
+SpeedDialFabWidget(
+  layout: SpeedDialLayout.radial,
+  radialRadius: 112,
+  glassEffect: true,
+  glassOpacity: 0.22,
+  secondaryIconsList: const [Icons.copy, Icons.share, Icons.delete],
+  secondaryIconsOnPress: [copyItem, shareItem, deleteItem],
+)
+```
+
+The default radial arc travels toward the upper-left, so it stays visible when
+the widget is placed in a bottom-right `Scaffold.floatingActionButton` slot.
 
 Here is the Primary and Secondary FAB reference:
 
