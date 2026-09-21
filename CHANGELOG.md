@@ -2,6 +2,7 @@
 
 * Added configurable expand/collapse animation duration.
 * Added horizontal and vertical expansion directions.
+* Added optional background blur while the dial is expanded.
 
 ## 2.3.0
 -  Added primaryElevation and secondaryElevation[PR #5](https://github.com/lcsvcn/speed_dial_fab/pull/5)
