@@ -101,7 +101,7 @@ void main() {
     );
 
     await tester.tap(find.byIcon(Icons.expand_less));
-    await tester.pump();
+    await tester.pumpAndSettle();
     expect(find.byType(BackdropFilter), findsOneWidget);
 
     await tester.tap(find.byIcon(Icons.expand_less));
