@@ -1,6 +1,9 @@
 ## 2.5.0
 
-* Added configurable animation duration, horizontal layouts, and background blur.
+* Added vertical, horizontal, and radial layouts.
+* Added configurable radial radius and arc.
+* Added iOS-compatible translucent glass action surfaces.
+* Updated package and CI metadata for current Flutter stable releases.
 
 ## 2.4.2
 

@@ -131,6 +131,24 @@ propType: `SpeedDialDirection`
 
 default: `SpeedDialDirection.up`
 
+#### `layout`
+
+Choose `SpeedDialLayout.vertical`, `SpeedDialLayout.horizontal`, or
+`SpeedDialLayout.radial`. Radial mode places actions on an arc around the
+primary FAB. Its defaults fan toward the upper-left, which is safe for a
+FAB anchored at the bottom-right of a screen.
+
+#### `radialRadius`, `radialStartAngle`, `radialSweepAngle`
+
+Customize the radial orbit in logical pixels and radians. Adjust the start and
+sweep angles when the FAB is anchored to another screen corner.
+
+#### `glassEffect`
+
+Uses `BackdropFilter` to create a translucent glass surface for primary and
+secondary actions. This is supported on iOS and other Flutter platforms.
+Use `glassColor`, `glassOpacity`, and `glassBlurSigma` to customize it.
+
 #### `blurBackground`
 
 Blurs the screen behind the speed dial while its secondary actions are shown.
