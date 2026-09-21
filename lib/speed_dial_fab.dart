@@ -198,8 +198,16 @@ class _SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
       elevation: elevation,
       heroTag: null,
       mini: !primary,
+      shape: widget.glassEffect
+          ? CircleBorder(
+              side: BorderSide(
+                color: _withOpacityCompat(Colors.white, .5),
+                width: 1.2,
+              ),
+            )
+          : null,
       backgroundColor: widget.glassEffect
-          ? _withOpacityCompat(widget.glassColor, widget.glassOpacity)
+          ? _withOpacityCompat(widget.glassColor, widget.glassOpacity * .72)
           : color,
       onPressed: child is _ActionIcon
           ? child.onPressed

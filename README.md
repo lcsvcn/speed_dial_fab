@@ -5,23 +5,25 @@
 A customizable Speed Dial FAB widget for Flutter, including vertical, horizontal,
 and radial/carousel layouts.
 
-### Standard speed dial
+### Vertical and horizontal speed dial
 
 The standard dial supports the original vertical arrangement and the new
-horizontal arrangement.
+horizontal arrangement. The recorded demo uses the vertical direction; switch
+to `SpeedDialLayout.horizontal` for the horizontal version.
 
 ![Standard speed dial](https://raw.githubusercontent.com/lcsvcn/speed_dial_fab/main/assets/speed_dial_standard.gif)
 
 <img src="https://raw.githubusercontent.com/lcsvcn/speed_dial_fab/main/assets/speed_dial_standard.gif" width="375" alt="Standard vertical and horizontal speed dial animation">
 
-### Radial and glass speed dial
+### Radial liquid-glass speed dial
 
 The radial layout places actions around the primary button and can use
-translucent glass surfaces on iOS and other Flutter platforms.
+translucent liquid-glass surfaces on iOS and other Flutter platforms. The
+primary add action is centered and uses a clean `+` icon.
 
-![Radial glass speed dial](https://raw.githubusercontent.com/lcsvcn/speed_dial_fab/main/assets/speed_dial_radial_glass.gif)
+![Radial liquid-glass speed dial](https://raw.githubusercontent.com/lcsvcn/speed_dial_fab/main/assets/speed_dial_radial_glass_clean.gif)
 
-<img src="https://raw.githubusercontent.com/lcsvcn/speed_dial_fab/main/assets/speed_dial_radial_glass.gif" width="540" alt="Radial glass speed dial animation">
+<img src="https://raw.githubusercontent.com/lcsvcn/speed_dial_fab/main/assets/speed_dial_radial_glass_clean.gif" width="540" alt="Radial liquid-glass speed dial animation">
 
 **Please note**: Most of the support on debugging new issues relies on the open source community.
 
