@@ -1,0 +1,5 @@
+# Development-only files excluded from the published package.
+pubspec.lock
+example/pubspec.lock
+example/android/.project
+example/android/.settings/
