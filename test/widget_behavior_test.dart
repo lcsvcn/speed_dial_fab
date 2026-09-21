@@ -108,6 +108,7 @@ void main() {
     await tester.pumpAndSettle();
     // Allow the completion callback that removes the overlay to run.
     await tester.pump();
+    await tester.pump();
     expect(find.byType(BackdropFilter), findsNothing);
   });
 
