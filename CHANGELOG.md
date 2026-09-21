@@ -1,3 +1,7 @@
+## 2.5.0
+
+* Added configurable animation duration, horizontal layouts, and background blur.
+
 ## 2.4.2
 
 * Added configurable expand/collapse animation duration.
