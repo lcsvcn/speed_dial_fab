@@ -247,16 +247,19 @@ class _SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
             mainAxisSize: MainAxisSize.min,
             children: [action, _label(label)],
           );
-    return ScaleTransition(
-      scale: CurvedAnimation(
+    final animation = CurvedAnimation(
         parent: _controller,
         curve: Interval(
           0,
           1 - index / math.max(1, widget.secondaryIconsList.length) / 2,
           curve: Curves.easeOut,
         ),
-      ),
-      child: content,
+      );
+    // Fade as well as scale so translucent/glass actions cannot leave a
+    // ghosted circle or icon behind while the dial is collapsing.
+    return FadeTransition(
+      opacity: animation,
+      child: ScaleTransition(scale: animation, child: content),
     );
   }
 
