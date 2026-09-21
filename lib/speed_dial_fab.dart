@@ -167,7 +167,13 @@ class _SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
     super.dispose();
   }
 
-  bool get _horizontal => widget.layout == SpeedDialLayout.horizontal;
+  // Treat the pre-layout `direction: left/right` API as horizontal so older
+  // consumers keep their existing arrangement after upgrading.
+  bool get _horizontal =>
+      widget.layout == SpeedDialLayout.horizontal ||
+      (widget.layout == SpeedDialLayout.vertical &&
+          (widget.direction == SpeedDialDirection.left ||
+              widget.direction == SpeedDialDirection.right));
 
   bool get _reverseActions =>
       widget.direction == SpeedDialDirection.up ||
