@@ -40,6 +40,9 @@ class SpeedDialFabWidget extends StatefulWidget {
   /// The default value is [math.pi]
   final double rotateAngle;
 
+  /// Length of the expand and collapse animation.
+  final Duration animationDuration;
+
   /// Required: [secondaryIconsList] Change the list of icons of secondary FAB, , should be the same size of @secondaryIconsText and @secondaryIconsOnPress
   /// Should have the same size of [secondaryIconsOnPress] and [secondaryIconsList]
   final List<IconData> secondaryIconsList;
@@ -67,6 +70,7 @@ class SpeedDialFabWidget extends StatefulWidget {
     this.secondaryIconsText,
     this.primaryElevation = 5.0,
     this.secondaryElevation = 10.0,
+    this.animationDuration = const Duration(milliseconds: 500),
   });
 
   @override
@@ -81,7 +85,7 @@ class _SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
   void initState() {
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 500),
+      duration: widget.animationDuration,
     );
 
     if (widget.secondaryIconsList.length !=
@@ -133,12 +137,10 @@ class _SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
               children: [
                 FloatingActionButton(
                   elevation: widget.secondaryElevation,
-                  tooltip: widget.secondaryIconsText![index],
+                  tooltip: widget.secondaryIconsText?[index],
                   heroTag: null,
                   mini: true,
                   backgroundColor: widget.secondaryBackgroundColor,
-                  onPressed:
-                      widget.secondaryIconsOnPress[index] as void Function(),
                   child: Icon(
                     widget.secondaryIconsList[index],
                     color: widget.secondaryForegroundColor,

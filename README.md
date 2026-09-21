@@ -114,6 +114,14 @@ propType: `double`
 
 default: 'math.pi (180°)
 
+#### `animationDuration`
+
+Sets the duration of the expand and collapse animations.
+
+propType: `Duration`
+
+default: `Duration(milliseconds: 500)`
+
 ## Stateful functions
 
 #### `forceExpandSecondaryFab`
