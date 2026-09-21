@@ -1,3 +1,7 @@
+## 2.4.1
+
+* Added configurable expand/collapse animation duration.
+
 ## 2.3.0
 -  Added primaryElevation and secondaryElevation[PR #5](https://github.com/lcsvcn/speed_dial_fab/pull/5)
 
