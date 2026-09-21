@@ -106,6 +106,8 @@ void main() {
 
     await tester.tap(find.byIcon(Icons.expand_less));
     await tester.pumpAndSettle();
+    // Allow the completion callback that removes the overlay to run.
+    await tester.pump();
     expect(find.byType(BackdropFilter), findsNothing);
   });
 
@@ -122,7 +124,9 @@ void main() {
       ),
     );
 
-    expect(find.byType(BackdropFilter), findsOneWidget);
+    // The primary and the collapsed secondary action both have glass
+    // surfaces, even before the dial is expanded.
+    expect(find.byType(BackdropFilter), findsNWidgets(2));
   });
 
   testWidgets('rejects mismatched action and callback lists', (tester) async {
