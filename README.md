@@ -189,6 +189,26 @@ Force animation of collapse the secondary fab. Note: This can mess the animation
 
 Please open an issue if something doesn't work or is not clear enough.
 
+## Releasing
+
+Releases use pub.dev's GitHub Actions OpenID Connect publishing. Enable
+automated publishing in the package Admin settings with repository
+`lcsvcn/speed_dial_fab` and tag pattern `v{{version}}`.
+
+To prepare a release locally, install and run [`pub_release`](https://pub.dev/packages/pub_release):
+
+```bash
+dart pub global activate pub_release
+pub_release --dry-run --setVersion=2.5.0 --autoAnswer
+# After reviewing the dry-run, update pubspec.yaml and CHANGELOG.md,
+# then push the matching tag:
+git tag v2.5.0
+git push origin main v2.5.0
+```
+
+Pushing the matching `v2.5.0` tag triggers the trusted pub.dev publisher;
+no `PUB_DEV_TOKEN` or long-lived publishing secret is required.
+
 ## ToDo
 - [ ] Add Test to every components
 

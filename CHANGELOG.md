@@ -4,6 +4,7 @@
 * Added configurable radial radius and arc.
 * Added iOS-compatible translucent glass action surfaces.
 * Updated package and CI metadata for current Flutter stable releases.
+* Switched pub.dev publishing to GitHub Actions OIDC.
 
 ## 2.4.2
 
