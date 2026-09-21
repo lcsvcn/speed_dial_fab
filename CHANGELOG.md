@@ -1,4 +1,4 @@
-## 2.5.0
+## 3.0.0
 
 * Added vertical, horizontal, and radial layouts.
 * Added configurable radial radius and arc.
