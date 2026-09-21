@@ -3,6 +3,9 @@ library speed_dial_fab_widget;
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
+/// Direction in which secondary actions are displayed.
+enum SpeedDialDirection { up, down, left, right }
+
 class SpeedDialFabWidget extends StatefulWidget {
   /// [secondaryBackgroundColor] Changes the background color of the secondary FAB button.
   /// The default value is [Colors.white]
@@ -43,6 +46,9 @@ class SpeedDialFabWidget extends StatefulWidget {
   /// Length of the expand and collapse animation.
   final Duration animationDuration;
 
+  /// Direction in which the secondary FABs expand.
+  final SpeedDialDirection direction;
+
   /// Required: [secondaryIconsList] Change the list of icons of secondary FAB, , should be the same size of @secondaryIconsText and @secondaryIconsOnPress
   /// Should have the same size of [secondaryIconsOnPress] and [secondaryIconsList]
   final List<IconData> secondaryIconsList;
@@ -65,12 +71,13 @@ class SpeedDialFabWidget extends StatefulWidget {
     this.primaryIconCollapse = Icons.expand_less,
     this.primaryIconExpand = Icons.expand_less,
     this.rotateAngle = math.pi,
+    this.animationDuration = const Duration(milliseconds: 500),
+    this.direction = SpeedDialDirection.up,
     required this.secondaryIconsList,
     required this.secondaryIconsOnPress,
     this.secondaryIconsText,
     this.primaryElevation = 5.0,
     this.secondaryElevation = 10.0,
-    this.animationDuration = const Duration(milliseconds: 500),
   });
 
   @override
@@ -116,9 +123,9 @@ class _SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: List.generate(widget.secondaryIconsList.length, (int index) {
+    final isHorizontal = widget.direction == SpeedDialDirection.left ||
+        widget.direction == SpeedDialDirection.right;
+    final secondaryFabs = List.generate(widget.secondaryIconsList.length, (int index) {
         Widget secondaryFAB = Container(
           height: 70.0,
           width: 56.0,
@@ -180,9 +187,8 @@ class _SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
         );
 
         return secondaryFAB;
-      }).toList()
-        ..add(
-          FloatingActionButton(
+      }).toList();
+    final primaryFab = FloatingActionButton(
             elevation: widget.primaryElevation,
             clipBehavior: Clip.antiAlias,
             backgroundColor: widget.primaryBackgroundColor,
@@ -211,8 +217,20 @@ class _SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
                 _controller.reverse();
               }
             },
-          ),
-        ),
+          );
+    final children = <Widget>[];
+    if (widget.direction == SpeedDialDirection.up ||
+        widget.direction == SpeedDialDirection.left) {
+      children.addAll(secondaryFabs);
+      children.add(primaryFab);
+    } else {
+      children.add(primaryFab);
+      children.addAll(secondaryFabs);
+    }
+    return Flex(
+      direction: isHorizontal ? Axis.horizontal : Axis.vertical,
+      mainAxisSize: MainAxisSize.min,
+      children: children,
     );
   }
 }

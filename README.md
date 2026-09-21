@@ -122,6 +122,15 @@ propType: `Duration`
 
 default: `Duration(milliseconds: 500)`
 
+#### `direction`
+
+Sets where the secondary FABs expand. Use `SpeedDialDirection.left` or
+`SpeedDialDirection.right` for a horizontal arrangement.
+
+propType: `SpeedDialDirection`
+
+default: `SpeedDialDirection.up`
+
 ## Stateful functions
 
 #### `forceExpandSecondaryFab`
