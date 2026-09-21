@@ -53,7 +53,8 @@ class SpeedDialFabWidget extends StatefulWidget {
   /// Should have the same size of [secondaryIconsText] and [secondaryIconsList]
   final List<Function> secondaryIconsOnPress;
 
-  SpeedDialFabWidget({
+  const SpeedDialFabWidget({
+    super.key,
     this.secondaryBackgroundColor = Colors.white,
     this.secondaryForegroundColor = Colors.black,
     this.primaryBackgroundColor = Colors.white,
@@ -69,10 +70,10 @@ class SpeedDialFabWidget extends StatefulWidget {
   });
 
   @override
-  State createState() => SpeedDialFabWidgetState();
+  State<SpeedDialFabWidget> createState() => _SpeedDialFabWidgetState();
 }
 
-class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
+class _SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
     with TickerProviderStateMixin {
   late AnimationController _controller;
 
@@ -136,6 +137,8 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
                   heroTag: null,
                   mini: true,
                   backgroundColor: widget.secondaryBackgroundColor,
+                  onPressed:
+                      widget.secondaryIconsOnPress[index] as void Function(),
                   child: Icon(
                     widget.secondaryIconsList[index],
                     color: widget.secondaryForegroundColor,
@@ -144,9 +147,10 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
                     widget.secondaryIconsOnPress[index]();
                      _controller.reverse();
                   },
+
                 ),
-                Positioned(
-                  right: 51.0,
+                PositionedDirectional(
+                  end: 51.0,
                   top: 5,
                   child: Material(
                     clipBehavior: Clip.antiAlias,
@@ -155,7 +159,7 @@ class SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
                     shadowColor: widget.secondaryForegroundColor,
                     color: widget.secondaryBackgroundColor,
                     child: Padding(
-                      padding: EdgeInsets.all(9),
+                      padding: const EdgeInsets.all(9),
                       child: Text(
                         widget.secondaryIconsText?[index] ?? "",
                         style: TextStyle(

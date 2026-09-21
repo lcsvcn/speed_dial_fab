@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({Key? key, required this.title}) : super(key: key);
   final String title;
 
   @override
@@ -50,10 +50,10 @@ class _MyHomePageState extends State<MyHomePage> {
           () => {},
           () => {},
         ],
-        secondaryBackgroundColor: Colors.grey[900],
-        secondaryForegroundColor: Colors.grey[100],
-        primaryBackgroundColor: Colors.grey[900],
-        primaryForegroundColor: Colors.grey[100],
+        secondaryBackgroundColor: Colors.grey[900]!,
+        secondaryForegroundColor: Colors.grey[100]!,
+        primaryBackgroundColor: Colors.grey[900]!,
+        primaryForegroundColor: Colors.grey[100]!,
       ),
       appBar: AppBar(
         centerTitle: true,
