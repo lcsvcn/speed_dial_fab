@@ -5,9 +5,9 @@
 A customizable Speed Dial FAB widget for Flutter, including vertical, horizontal,
 and radial/carousel layouts.
 
-![Radial glass speed dial](assets/speed_dial_radial_glass.gif)
+![Radial glass speed dial](https://raw.githubusercontent.com/lcsvcn/speed_dial_fab/main/assets/speed_dial_radial_glass.gif)
 
-<img src="assets/speed_dial_radial_glass.gif" width="540" alt="Radial glass speed dial animation">
+<img src="https://raw.githubusercontent.com/lcsvcn/speed_dial_fab/main/assets/speed_dial_radial_glass.gif" width="540" alt="Radial glass speed dial animation">
 
 **Please note**: Most of the support on debugging new issues relies on the open source community.
 
