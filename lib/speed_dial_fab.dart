@@ -120,6 +120,13 @@ class _SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
       vsync: this,
       duration: widget.animationDuration,
     );
+    _controller.addStatusListener(_handleAnimationStatus);
+  }
+
+  void _handleAnimationStatus(AnimationStatus status) {
+    if (status == AnimationStatus.dismissed) {
+      _removeBackgroundBlur();
+    }
   }
 
   @override
@@ -136,7 +143,7 @@ class _SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
   }
 
   void forceCollapseSecondaryFab() {
-    _controller.reverse().whenComplete(_removeBackgroundBlur);
+    _controller.reverse();
   }
 
   void _showBackgroundBlur() {
@@ -163,6 +170,7 @@ class _SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
   @override
   void dispose() {
     _removeBackgroundBlur();
+    _controller.removeStatusListener(_handleAnimationStatus);
     _controller.dispose();
     super.dispose();
   }
