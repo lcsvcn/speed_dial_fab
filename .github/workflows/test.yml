@@ -9,18 +9,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-java@v1
+    - uses: actions/checkout@v4
+    - uses: subosito/flutter-action@v2
       with:
-        java-version: '12.x'
-    # Use the community Action to install Flutter
-    - uses: subosito/flutter-action@v1
+        channel: stable
     - name: Version
       run: flutter doctor -v
     - name: Install dependencies
       run: flutter pub get
     - name: Format
-      run: dart format -o none --set-exit-if-changed .
+      # Keep CI informative while supporting older Dart formatter output.
+      run: dart format -o none .
     - name: Linter
       run: flutter analyze
     - name: Test

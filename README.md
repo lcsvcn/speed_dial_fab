@@ -2,16 +2,34 @@
 
 [![Pub Version](https://img.shields.io/pub/v/speed_dial_fab)](https://pub.dev/packages/speed_dial_fab)
 
-A Speed Dial FAB widget for Flutter
+A customizable Speed Dial FAB widget for Flutter, including vertical, horizontal,
+and radial/carousel layouts.
 
-![](/https://i.imgur.com/NUYF5KQ.gif)
-<img src="https://i.imgur.com/NUYF5KQ.gif"  width="375" height="667">
+![Radial glass speed dial](assets/speed_dial_radial_glass.gif)
+
+<img src="assets/speed_dial_radial_glass.gif" width="540" alt="Radial glass speed dial animation">
 
 **Please note**: Most of the support on debugging new issues relies on the open source community.
 
 ## Usage
 
 To use speed_dial_fab, `import` the `speed_dial_fab` module and use the `speed_dial_fab` Widget. More usage examples can be seen under the `examples/` folder.
+
+### Radial glass example
+
+```dart
+SpeedDialFabWidget(
+  layout: SpeedDialLayout.radial,
+  radialRadius: 112,
+  glassEffect: true,
+  glassOpacity: 0.22,
+  secondaryIconsList: const [Icons.copy, Icons.share, Icons.delete],
+  secondaryIconsOnPress: [copyItem, shareItem, deleteItem],
+)
+```
+
+The default radial arc travels toward the upper-left, so it stays visible when
+the widget is placed in a bottom-right `Scaffold.floatingActionButton` slot.
 
 Here is the Primary and Secondary FAB reference:
 
@@ -131,6 +149,24 @@ propType: `SpeedDialDirection`
 
 default: `SpeedDialDirection.up`
 
+#### `layout`
+
+Choose `SpeedDialLayout.vertical`, `SpeedDialLayout.horizontal`, or
+`SpeedDialLayout.radial`. Radial mode places actions on an arc around the
+primary FAB. Its defaults fan toward the upper-left, which is safe for a
+FAB anchored at the bottom-right of a screen.
+
+#### `radialRadius`, `radialStartAngle`, `radialSweepAngle`
+
+Customize the radial orbit in logical pixels and radians. Adjust the start and
+sweep angles when the FAB is anchored to another screen corner.
+
+#### `glassEffect`
+
+Uses `BackdropFilter` to create a translucent glass surface for primary and
+secondary actions. This is supported on iOS and other Flutter platforms.
+Use `glassColor`, `glassOpacity`, and `glassBlurSigma` to customize it.
+
 #### `blurBackground`
 
 Blurs the screen behind the speed dial while its secondary actions are shown.
@@ -152,6 +188,26 @@ Force animation of collapse the secondary fab. Note: This can mess the animation
 
 
 Please open an issue if something doesn't work or is not clear enough.
+
+## Releasing
+
+Releases use pub.dev's GitHub Actions OpenID Connect publishing. Enable
+automated publishing in the package Admin settings with repository
+`lcsvcn/speed_dial_fab` and tag pattern `v{{version}}`.
+
+To prepare a release locally, install and run [`pub_release`](https://pub.dev/packages/pub_release):
+
+```bash
+dart pub global activate pub_release
+pub_release --dry-run --setVersion=2.5.0 --autoAnswer
+# After reviewing the dry-run, update pubspec.yaml and CHANGELOG.md,
+# then push the matching tag:
+git tag v2.5.0
+git push origin main v2.5.0
+```
+
+Pushing the matching `v2.5.0` tag triggers the trusted pub.dev publisher;
+no `PUB_DEV_TOKEN` or long-lived publishing secret is required.
 
 ## ToDo
 - [ ] Add Test to every components
