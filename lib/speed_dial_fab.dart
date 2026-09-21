@@ -5,6 +5,14 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+// `withValues` is not available on older Flutter versions supported by this
+// package. Keep the compatibility implementation in one place until the
+// minimum Flutter version can be raised without breaking existing consumers.
+Color _withOpacityCompat(Color color, double opacity) {
+  // ignore: deprecated_member_use
+  return color.withOpacity(opacity);
+}
+
 /// The arrangement used for secondary actions.
 enum SpeedDialLayout { vertical, horizontal, radial }
 
@@ -177,7 +185,7 @@ class _SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
       heroTag: null,
       mini: !primary,
       backgroundColor: widget.glassEffect
-          ? widget.glassColor.withOpacity(widget.glassOpacity)
+          ? _withOpacityCompat(widget.glassColor, widget.glassOpacity)
           : color,
       onPressed: child is _ActionIcon
           ? child.onPressed
@@ -248,7 +256,7 @@ class _SpeedDialFabWidgetState extends State<SpeedDialFabWidget>
 
   Widget _label(String text) {
     final color = widget.glassEffect
-        ? widget.glassColor.withOpacity(widget.glassOpacity)
+        ? _withOpacityCompat(widget.glassColor, widget.glassOpacity)
         : widget.secondaryBackgroundColor;
     final label = Material(
       color: color,
